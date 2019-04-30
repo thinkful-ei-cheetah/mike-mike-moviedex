@@ -1,16 +1,17 @@
-const express = require('express')
-const morgan = require('morgan')
-const cors = require('cors')
-const helmet = require('helmet')
+'use strict';
 
-const app = express()
+require('dotenv').config();
+const express = require('express');
+const morgan = require('morgan');
+const cors = require('cors');
+const helmet = require('helmet');
 
-app.use(morgan('common'))
+console.log(process.env.API_KEY);
 
-app.use((req, res) => {
-  res.send('Hello, world!')
-})
+const app = express();
+
+app.use(morgan('dev'));
 
 app.listen(3000, () => {
-  console.log('running!')
-})
+  console.log('server running on port 3000');
+});
