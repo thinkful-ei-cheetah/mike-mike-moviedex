@@ -25,7 +25,7 @@ app.get('/movie', (req, res, next) => {
       res.status(400);
       next(error);
     }
-    results = results.filter(movie => movie.genre.toLowerCase() === genre.toLowerCase());
+    results = results.filter(movie => movie.genre.toLowerCase().includes(genre.toLowerCase()));
   }
 
   if (country) {
